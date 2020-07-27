@@ -26,15 +26,15 @@ class PessoaDaoModel{
 
         $pessoas = array();
         
-         if($resultado > 0){
-            $pessoa = new PessoaModel();
-            
-             foreach ($resultado as $linha => $valor) {
-                $pessoa->$linha=$valor;                
+         if($resultado > 0){    
+             foreach ($resultado as $linha) {
+                $pessoa = new PessoaModel();
+                foreach ($linha as $chave => $valor) {
+                    $pessoa->$chave=$valor;   
+                }  
+                $pessoas[] = $pessoa;
             }
-            
-            $pessoas[] = $pessoa;
-            var_dump($pessoas);
         }
+        return $pessoas;
     }
 }

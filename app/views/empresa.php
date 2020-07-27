@@ -7,21 +7,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="css/estilo.css">
+    <link rel="stylesheet" href="../css/estilo.css">
 </head>
 
 <body>
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" href="index.php">Pessoa</a>
+                <a class="nav-link" href="../index.php">Pessoa</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="views/empresa.php">Empresa</a>
+                <a class="nav-link" href="empresa.php">Empresa</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Funcionario</a>
             </li>
+
         </ul>
     </nav>
 
@@ -29,25 +30,15 @@
         <form action="projeto" method="POST">
 
             <div class="campo">
-                <label for="nome">Nome</label>
-                <input type="text" id="nome" name="nome" style="width: 20em">
+                <label for="rs">Razão Social</label>
+                <input type="text" id="rs" name="rs" style="width: 20em">
             </div>
 
             <div class="campo">
-                <label for="cpf">CPF</label>
-                <input type="text" id="cpf" name="cpf" style="width: 20em" autocomplete="off" maxlength="14                                                                 ">
-            </div>
-                                                                                                 
-            <div class="campo">
-                <label for="dataNascimento">Data de Nascimento</label>
-                <input type="date" id="dataNascimento" name="dataNascimento" style="width: 15em">
+                <label for="cnpj">CNPJ</label>
+                <input type="text" id="cnpj" name="cnpj" style="width: 20em">
             </div>
 
-            <div class="campo">
-                <label for="dhGravacao">Data e Hora Gravação</label>
-                <input type="datetime-local" value="<?php echo date('Y-m-d\TH:i'); ?>" id="dhGravacao" name="dhGravacao"
-                    style="width: 15em">
-            </div>
             <button class="button button2">Enviar</button>
 
         </form>
@@ -56,16 +47,12 @@
     <section id="direita">
         <table>
             <tr id="titulo">
-                <td>Nome</td>
-                <td>CPF</td>
-                <td>Data de Nascimento</td>
-                <td>Data e Hora Gravação</td>
+                <td>Razão Social</td>
+                <td>CNPJ</td>
                 <td></td>
             </tr>
             <tr>
                 <td>adadad</td>
-                <td>dsdsdsds</td>
-                <td>sdsdsd</td>
                 <td>dsdsdsds</td>
                 <td><a id="links" href="">Editar</a> <a id="links" href="">Excluir</a> </td>
             </tr>

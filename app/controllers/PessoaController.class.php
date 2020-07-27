@@ -15,7 +15,8 @@
     }
 
    public function listAll(){
-   
-   } 
+     $pessoas = PessoaDaoModel::getInstance()->listAll();
+     $resposta = array('pessoas'=>$pessoas);
 
- }
+   }   
+}
