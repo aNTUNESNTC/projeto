@@ -18,5 +18,16 @@
      $pessoas = PessoaDaoModel::getInstance()->listAll();
      $resposta = array('pessoas'=>$pessoas);
 
-   }   
+     View::render('pessoas',$resposta);
+   } 
+
+   public function create(){  
+  }
+
+  public function update(){
+  }
+
+  public function delete(){
+  }
+  
 }
