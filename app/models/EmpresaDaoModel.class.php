@@ -36,17 +36,36 @@ class EmpresaDaoModel{
             }
             
         }
-        var_dump($empresas);
+
         return $empresas;
     }
 
     public function create(){  
+        $conn = PdoConnection::getInstance();
+        
+        $stmt = $conn->prepare("INSERT INTO empresa(razaoSocial,cnpj) values (:RZ,:CNPJ)");
+
+        $razaoSocial = "teste";
+        $cnpj = "teste";
+
+        $stmt->bindParam(":RZ",$razaoSocial);
+        $stmt->bindParam(":CNPJ",$cnpj);
+        $resultado = $stmt->execute(); 
+        $id = $conn->lastInsertId();
+        echo $resultado;
+        var_dump($resultado);
     }
 
     public function update(){
     }
 
     public function delete(){
+        $conn = PdoConnection::getInstance();
+
+        $res = $conn->prepare("DELETE FROM empresa WHERE id = :id");
+        $id = 1;
+        $res->bindParam(":id",$id);
+        $res->execute();
     }
     
 }

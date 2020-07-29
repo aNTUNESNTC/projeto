@@ -55,7 +55,6 @@ class PessoaDaoModel{
         $resultado = $stmt->execute(); 
         $id = $conn->lastInsertId();
         echo $resultado;
-
     }
 
     public function update(){

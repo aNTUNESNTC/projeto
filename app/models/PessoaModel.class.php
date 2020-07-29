@@ -5,8 +5,8 @@ class PessoaModel{
     public int $id;
     public string $nome;
     public string $cpf;
-    public $dataNascimento;
-    public $dhGravacao;
+    public string $dataNascimento;
+    public string $dhGravacao;
 
     public function __construct(){
     }
