@@ -20,14 +20,5 @@
 
      View::render('pessoas',$resposta);
    } 
-
-   public function create(){  
-  }
-
-  public function update(){
-  }
-
-  public function delete(){
-  }
-  
+   
 }

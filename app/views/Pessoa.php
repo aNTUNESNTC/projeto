@@ -2,7 +2,6 @@
 <html lang="pt-br">
 
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio</title>
@@ -70,7 +69,6 @@
                 <td><a id="links" href="">Editar</a> <a id="links" href="">Excluir</a> </td>
             </tr>
         </table>
-
     </section>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -83,5 +81,4 @@
         integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
     </script>
 </body>
-
 </html>

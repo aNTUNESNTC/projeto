@@ -35,6 +35,7 @@ $res->execute();
 */
 
 $test = PessoaDaoModel::getInstance();
-$test = PessoaDaoModel::listAll();
+$test = PessoaDaoModel::create();
+
 
 

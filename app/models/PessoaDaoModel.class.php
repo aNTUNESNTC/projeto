@@ -39,6 +39,23 @@ class PessoaDaoModel{
     }
 
     public function create(){  
+        $conn = PdoConnection::getInstance();
+        
+        $stmt = $conn->prepare("INSERT INTO pessoa(nome,cpf,dataNascimento,dhGravacao) values (:N,:C,:D,:DN)");
+
+        $nome = "joao";
+        $cpf = "123";
+        $dataNascimento = "2020-25-10";
+        $dtGravacao = "2020-25-10 20:00:00";
+
+        $stmt->bindParam(":N",$nome);
+        $stmt->bindParam(":C",$cpf);
+        $stmt->bindParam(":DN",$dataNascimento);
+        $stmt->bindParam(":DG",$dtGravacao);
+        $resultado = $stmt->execute(); 
+        $id = $conn->lastInsertId();
+        echo $resultado;
+
     }
 
     public function update(){

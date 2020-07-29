@@ -2,9 +2,11 @@
 
 class EmpresaDaoModel{
 
+    private static $instance = NULL;
+
     public function __construct(){
-        
     }
+
     public function getInstance(){
         if(is_null(self::$instance)){
             self::$instance = new EmpresaDaoModel();
@@ -31,9 +33,10 @@ class EmpresaDaoModel{
                     $empresa->$chave=$valor;   
                 }  
                 $empresas[] = $empresa;
-                
             }
+            
         }
+        var_dump($empresas);
         return $empresas;
     }
 
@@ -45,6 +48,5 @@ class EmpresaDaoModel{
 
     public function delete(){
     }
-
-
+    
 }
