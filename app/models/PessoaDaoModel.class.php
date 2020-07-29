@@ -41,7 +41,7 @@ class PessoaDaoModel{
     public function create(){  
         $conn = PdoConnection::getInstance();
         
-        $stmt = $conn->prepare("INSERT INTO pessoa(nome,cpf,dataNascimento,dhGravacao) values (:N,:C,:D,:DN)");
+        $stmt = $conn->prepare("INSERT INTO pessoa(nome,cpf,dataNascimento,dtGravacao) values (:N,:C,:DN,:DG)");
 
         $nome = "joao";
         $cpf = "123";
@@ -59,9 +59,16 @@ class PessoaDaoModel{
     }
 
     public function update(){
+
     }
 
     public function delete(){
-    }
+        $conn = PdoConnection::getInstance();
 
+        $res = $conn->prepare("DELETE FROM pessoa WHERE id = :id");
+        $id = 3;
+        $res->bindParam(":id",$id);
+        $res->execute();
+    }
+    
 }
