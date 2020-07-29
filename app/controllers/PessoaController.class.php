@@ -20,5 +20,19 @@
 
      View::render('pessoas',$resposta);
    } 
-   
+
+   public function create(){  
+  }
+
+  public function update(){
+  }
+
+  public function delete($request){
+      // $data = $request->getBody();
+      $id_pessoa = $request;
+      $resultado = PessoaDaoModel::getInstance()->delete($id_pessoa);
+      echo $resultado;
+
+  }
+
 }

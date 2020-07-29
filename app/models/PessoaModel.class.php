@@ -2,11 +2,11 @@
 
 class PessoaModel{  
     
-    public int $id;
-    public string $nome;
-    public string $cpf;
-    public string $dataNascimento;
-    public string $dhGravacao;
+    public $id;
+    public $nome;
+    public $cpf;
+    public $dataNascimento;
+    public $dhGravacao;
 
     public function __construct(){
     }

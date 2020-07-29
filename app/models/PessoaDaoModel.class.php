@@ -58,15 +58,30 @@ class PessoaDaoModel{
     }
 
     public function update(){
+        $conn = PdoConnection::getInstance();
+
+        $stmt = $conn->prepare("UPDATE pessoa SET nome=:N, cpf=:C ,dataNascimento=:DN ,dtGravacao=:DG WHERE id=:ID");
+        $id = 4;
+        $nome = "SCHONS";
+        $cpf = "789";
+        $dataNascimento = "2020-25-04";
+        $dtGravacao = "2020-25-10 20:20:00";
+        
+        $stmt->bindParam(":ID",$id);
+        $stmt->bindParam(":N",$nome);
+        $stmt->bindParam(":C",$cpf);
+        $stmt->bindParam(":DN",$dataNascimento);
+        $stmt->bindParam(":DG",$dtGravacao);
+        $resultado = $stmt->execute(); 
+        echo $resultado;
 
     }
 
-    public function delete(){
+    public function delete($id_pessoa){
         $conn = PdoConnection::getInstance();
 
         $res = $conn->prepare("DELETE FROM pessoa WHERE id = :id");
-        $id = 3;
-        $res->bindParam(":id",$id);
+        $res->bindParam(":id",$id_pessoa);
         $res->execute();
     }
     
