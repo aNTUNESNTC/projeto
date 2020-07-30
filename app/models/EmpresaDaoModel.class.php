@@ -16,7 +16,6 @@ class EmpresaDaoModel{
 
     public function listAll(){
 
-        require 'EmpresaModel.class.php';
         
         $conn = PdoConnection::getInstance();
 
@@ -38,6 +37,32 @@ class EmpresaDaoModel{
         }
 
         return $empresas;
+    }
+
+    public function load($id){
+
+        require_once 'EmpresaModel.class.php';
+
+        $conn = PdoConnection::getInstance();
+
+        $stmt = $conn->prepare("select * from empresa WHERE id=:ID");
+        $stmt->bindParam(":ID",$id);
+        $stmt->execute();
+        $resultado = $stmt->fetch();
+        $empresa = NULL;
+        
+        if($resultado > 0){    
+            foreach ($resultado as $linha) {
+              
+               $empresa = new EmpresaModel();
+               var_dump($empresa); exit;
+               foreach ($linha as $chave => $valor) {
+
+                   $empresa->$chave=$valor;   
+                   
+               }  
+           }
+       }
     }
 
     public function create($empresa){  

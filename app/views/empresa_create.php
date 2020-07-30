@@ -42,20 +42,6 @@
         </form>
     </section>
 
-    <section id="direita">
-        <table>
-            <tr id="titulo">
-                <td>Razão Social</td>
-                <td>CNPJ</td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>adadad</td>
-                <td>dsdsdsds</td>
-                <td><a id="links" href="">Editar</a> <a id="links" href="">Excluir</a> </td>
-            </tr>
-        </table>
-
     </section>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

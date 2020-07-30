@@ -18,7 +18,7 @@ class EmpresaController{
      $empresas = EmpresaDaoModel::getInstance()->listAll();
      $resposta = array('empresas'=>$empresas);
 
-     View::render('empresas',$resposta);
+     View::render('empresa',$resposta);
    } 
 
    public function create($request){ 

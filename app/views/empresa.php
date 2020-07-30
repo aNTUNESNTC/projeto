@@ -49,17 +49,18 @@
                 <td>Razão Social</td>
                 <td>CNPJ</td>
                 <td></td>
+                <td></td>
             </tr>
             <?php foreach ($empresas as $empresa){?>
             <tr>
                 <td><?php echo $empresa->razaoSocial ?> </td>
                 <td><?php echo $empresa->cnpj ?></td>
-                <td><a id="links" href="">Editar</a> <a id="links" href="">Excluir</a> </td>
+                <td><a id="links" href="/empresa/edit?id=<?php echo $empresa->id; ?>">Editar</a> </td>
+                <td><a id="links" href="/empresa/delete?id=<?php echo $empresa->id; ?>">Excluir</a></td>
             </tr>
             <?php }?>
         </table>
         
-
     </section>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
