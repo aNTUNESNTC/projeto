@@ -43,22 +43,18 @@
     </section>
 
     <section id="direita">
-        <?php  $empresas = $_SESSION['empresas']; ?>
         <table>
             <tr id="titulo">
                 <td>Razão Social</td>
                 <td>CNPJ</td>
                 <td></td>
             </tr>
-            <?php foreach ($empresas as $empresa){?>
             <tr>
-                <td><?php echo $empresa->razaoSocial ?> </td>
-                <td><?php echo $empresa->cnpj ?></td>
+                <td>adadad</td>
+                <td>dsdsdsds</td>
                 <td><a id="links" href="">Editar</a> <a id="links" href="">Excluir</a> </td>
             </tr>
-            <?php }?>
         </table>
-        
 
     </section>
 

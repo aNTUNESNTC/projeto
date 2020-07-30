@@ -1,6 +1,6 @@
 <?php
 
-class EmpressaController{
+class EmpresaController{
 
     private static $instance = NULL;
 
@@ -21,10 +21,22 @@ class EmpressaController{
      View::render('empresas',$resposta);
    } 
 
-   public function create(){  
+   public function create($request){ 
+    $form = $request->getBody();
+    $empresa = new EmpresaModel();
+    $empresa->razaoSocial = $form['razaoSocial'];
+    $empresa->cnpj = $form['cnpj'];
+    $resultado = EmpresaDaoModel::getInstance()->create($empresa);
+
   }
 
   public function update(){
+    $form = $request->getBody();
+    $empresa = new EmpresaModel();
+    $empresa->id = $form['id'];
+    $empresa->razaoSocial = $form['razaoSocial'];
+    $empresa->cnpj = $form['cnpj'];
+    $resultado = EmpresaDaoModel::getInstance()->update($empresa);
   }
 
   public function delete($request){
@@ -32,5 +44,5 @@ class EmpressaController{
     $id_empresa = $request;
     $resultado = EmpresaDaoModel::getInstance()->delete($id_empresa);
   }
-  
+
 }

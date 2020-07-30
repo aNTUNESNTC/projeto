@@ -40,18 +40,16 @@ class EmpresaDaoModel{
         return $empresas;
     }
 
-    public function create(){  
+    public function create($empresa){  
         $conn = PdoConnection::getInstance();
         
         $stmt = $conn->prepare("INSERT INTO empresa(razaoSocial,cnpj) values (:RZ,:CNPJ)");
 
-        $razaoSocial = "teste";
-        $cnpj = "teste";
-
-        $stmt->bindParam(":RZ",$razaoSocial);
-        $stmt->bindParam(":CNPJ",$cnpj);
+        $stmt->bindParam(":RZ",$empresa->razaoSocial);
+        $stmt->bindParam(":CNPJ",$empresa->cnpj);
         $resultado = $stmt->execute(); 
-        $id = $conn->lastInsertId();
+        // $id = $conn->lastInsertId();
+        return $resultado;
         
     }
 

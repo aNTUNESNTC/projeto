@@ -1,23 +1,21 @@
 <?php
+class View {
 
-class View{
-
-    public function __construct(){
+    public function __construct() {
     }
 
-    public static function redirect($string){
-        if(!isset($_SESSION)){
-            session_start();
-        }
-        $_SESSION['respostas'] = $resposta;
-        header('location: '. $string);
-    }
-
-    public static function render($string, $resposta = []){
+    public static function render($str, $response = []){
         if(!isset($_SESSION)) session_start();
-        foreach ($resposta as $chave => $valor) {
-            $_SESSION[$chave] = $valor;
+        foreach ($response as $key => $value) {
+            $_SESSION[$key] = $value;
         }
-        include($_SERVER['DOCUMENT_ROOT'] . "/app/views/" .$string . ".php");
+        include ($_SERVER['DOCUMENT_ROOT'] . "/app/views/" . $str . ".php");
     }
+
+    public static function redirect($str){
+        if(!isset($_SESSION)) session_start();
+        $_SESSION['response'] = $response;
+        header('location: ' . $str);
+    }
+
 }
