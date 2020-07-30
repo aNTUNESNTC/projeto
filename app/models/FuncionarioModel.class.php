@@ -1,11 +1,11 @@
 <?php
 
-class FuncionarioModel extends PessoaModel{
+class FuncionarioModel{
 
-    public int $id;
-    public int $idPessoa;
-    public int $idEmpresa;
-    public double $salario;
+    public $id;
+    public $idPessoa;
+    public $idEmpresa;
+    public $salario;
 
     public function __construct(){   
     }

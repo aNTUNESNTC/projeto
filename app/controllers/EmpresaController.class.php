@@ -27,7 +27,10 @@ class EmpressaController{
   public function update(){
   }
 
-  public function delete(){
+  public function delete($request){
+    // $data = $request->getBody();
+    $id_empresa = $request;
+    $resultado = EmpresaDaoModel::getInstance()->delete($id_empresa);
   }
   
 }

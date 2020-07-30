@@ -24,7 +24,7 @@ class EmpresaDaoModel{
         $stmt->execute();
         $resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        $pessoas = array();
+        $empresas = array();
         
          if($resultado > 0){    
              foreach ($resultado as $linha) {
@@ -34,7 +34,7 @@ class EmpresaDaoModel{
                 }  
                 $empresas[] = $empresa;
             }
-            
+      
         }
 
         return $empresas;
@@ -52,19 +52,31 @@ class EmpresaDaoModel{
         $stmt->bindParam(":CNPJ",$cnpj);
         $resultado = $stmt->execute(); 
         $id = $conn->lastInsertId();
-        echo $resultado;
-        var_dump($resultado);
+        
     }
 
     public function update(){
+        $conn = PdoConnection::getInstance();
+
+        $stmt = $conn->prepare("UPDATE empresa SET razaoSocial=:RZ, cnpj=:CNPJ WHERE id=:ID");
+        $id = 3;
+        $razaoSocial = "eqeq";
+        $cnpj = "1eqeqe23";
+       
+        
+        $stmt->bindParam(":ID",$id);
+        $stmt->bindParam(":RZ",$razaoSocial);
+        $stmt->bindParam(":CNPJ",$cnpj);
+        $resultado = $stmt->execute(); 
+        echo $resultado;
     }
 
-    public function delete(){
+    public function delete($id_empresa){
         $conn = PdoConnection::getInstance();
 
         $res = $conn->prepare("DELETE FROM empresa WHERE id = :id");
-        $id = 1;
-        $res->bindParam(":id",$id);
+
+        $res->bindParam(":id",$id_empresa);
         $res->execute();
     }
     

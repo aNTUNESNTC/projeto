@@ -28,8 +28,8 @@
         <form action="projeto" method="POST">
 
             <div class="campo">
-                <label for="rs">Razão Social</label>
-                <input type="text" id="rs" name="rs" style="width: 20em">
+                <label for="razaoSocial">Razão Social</label>
+                <input type="text" id="razaoSocial" name="razaoSocial" style="width: 20em">
             </div>
 
             <div class="campo">

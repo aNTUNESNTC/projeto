@@ -1,7 +1,8 @@
 <?php
 
 require 'connections/PdoConnection.class.php';
-require 'controllers/PessoaController.class.php';
+require 'controllers/EmpresaController.class.php';
+require 'models/EmpresaDaoModel.class.php';
 
 $pdo = PdoConnection::getInstance();
 
@@ -34,8 +35,9 @@ $res->bindParam(":id",$id);
 $res->execute();
 */
 
-$test = PessoaController::getInstance();
-$test = PessoaController::delete(5);
+$test = EmpresaDaoModel::getInstance();
+$test = EmpresaDaoModel::delete(3);
+
 
 
 

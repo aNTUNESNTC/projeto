@@ -30,8 +30,8 @@
   public function delete($request){
       // $data = $request->getBody();
       $id_pessoa = $request;
+      FuncionarioController::getInstance()->delete($id_pessoa);
       $resultado = PessoaDaoModel::getInstance()->delete($id_pessoa);
-      echo $resultado;
 
   }
 
