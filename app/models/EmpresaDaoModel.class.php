@@ -15,10 +15,9 @@ class EmpresaDaoModel{
     }
 
     public function listAll(){
+        require 'EmpresaModel.class.php';
 
-        
         $conn = PdoConnection::getInstance();
-
         $stmt = $conn->prepare("select * from empresa");
         $stmt->execute();
         $resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -29,13 +28,12 @@ class EmpresaDaoModel{
              foreach ($resultado as $linha) {
                 $empresa = new EmpresaModel();
                 foreach ($linha as $chave => $valor) {
-                    $empresa->$chave=$valor;   
+                    $empresa->$chave=$valor;
                 }  
                 $empresas[] = $empresa;
             }
       
         }
-
         return $empresas;
     }
 
@@ -44,25 +42,17 @@ class EmpresaDaoModel{
         require_once 'EmpresaModel.class.php';
 
         $conn = PdoConnection::getInstance();
-
         $stmt = $conn->prepare("select * from empresa WHERE id=:ID");
         $stmt->bindParam(":ID",$id);
         $stmt->execute();
-        $resultado = $stmt->fetch();
-        $empresa = NULL;
-        
-        if($resultado > 0){    
-            foreach ($resultado as $linha) {
-              
-               $empresa = new EmpresaModel();
-               var_dump($empresa); exit;
-               foreach ($linha as $chave => $valor) {
+        $resultado = $stmt->fetch(PDO::FETCH_OBJ);
 
-                   $empresa->$chave=$valor;   
-                   
-               }  
-           }
-       }
+        $empresa = new EmpresaModel();
+
+        foreach ($resultado as $chave => $valor) {
+            $empresa->$chave = $valor;
+        }
+        return $empresa;
     }
 
     public function create($empresa){  
@@ -98,7 +88,6 @@ class EmpresaDaoModel{
         $conn = PdoConnection::getInstance();
 
         $res = $conn->prepare("DELETE FROM empresa WHERE id = :id");
-
         $res->bindParam(":id",$id_empresa);
         $res->execute();
     }

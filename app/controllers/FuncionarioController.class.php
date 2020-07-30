@@ -21,14 +21,23 @@ class FuncionarioController{
      View::render('funcionarios',$resposta);
    } 
 
-   public function create(){  
+   public function create($request){  
+    $form = $request->getBody();
+    $funcionario = new FuncionarioModel();
+    $funcionario->salario = $form['salario'];
+    $resultado = FuncionarioDaoModel::getInstance()->update($funcionario);
   }
 
   public function update(){
+    $form = $request->getBody();
+    $funcionario = new FuncionarioModel();
+    $funcionario->id = $form['id'];
+    $funcionario->salario = $form['salario'];
+    $resultado = FuncionarioDaoModel::getInstance()->update($funcionario);
   }
 
   public function delete($request){
-    $data = $request->getBody();
+    // $data = $request->getBody();
     $id_funcionario = $request;
     $resultado = FuncionarioDaoModel::getInstance()->delete($id_funcionario);
   }

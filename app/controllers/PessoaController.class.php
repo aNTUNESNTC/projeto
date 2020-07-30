@@ -21,10 +21,26 @@
      View::render('pessoas',$resposta);
    } 
 
-   public function create(){  
+   public function create($request){  
+    $form = $request->getBody();
+    $pessoa = new PessoaModel();
+ 
+    $pessoa->nome = $form['nome'];
+    $pessoa->cpf = $form['cpf'];
+    $pessoa->dataNascimento = $form['dataNascimento'];
+    $pessoa->dhGravacao = $form['dhGravacao'];
+    $resultado = PessoaDaoModel::getInstance()->create($pessoa);
   }
 
   public function update(){
+    $form = $request->getBody();
+    $pessoa = new PessoaModel();
+    $pessoa->id = $form['id'];
+    $pessoa->nome = $form['nome'];
+    $pessoa->cpf = $form['cpf'];
+    $pessoa->dataNascimento = $form['dataNascimento'];
+    $pessoa->dhGravacao = $form['dhGravacao'];
+    $resultado = PessoaDaoModel::getInstance()->update($pessoa);
   }
 
   public function delete($request){
@@ -32,7 +48,6 @@
       $id_pessoa = $request;
       FuncionarioController::getInstance()->delete($id_pessoa);
       $resultado = PessoaDaoModel::getInstance()->delete($id_pessoa);
-
   }
 
 }

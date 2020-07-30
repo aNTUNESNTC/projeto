@@ -9,6 +9,7 @@ $routes = new Router(new Request);
 $routes->get('/',function(){
     EmpresaController::getInstance()->listAll();
 });
+
 $routes->get('/teste',function(){
     header('Location: app/teste.php');
 });
