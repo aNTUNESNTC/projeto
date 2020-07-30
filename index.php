@@ -8,4 +8,4 @@ include_once 'app/Autoload.class.php';
 /*
 Carregamos o arquivo de rotas
 */
-// include_once 'app/routes/routes.php';
+include_once 'app/routes/routes.php';

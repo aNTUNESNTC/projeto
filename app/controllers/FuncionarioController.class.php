@@ -27,7 +27,10 @@ class FuncionarioController{
   public function update(){
   }
 
-  public function delete(){
+  public function delete($request){
+    $data = $request->getBody();
+    $id_funcionario = $request;
+    $resultado = FuncionarioDaoModel::getInstance()->delete($id_funcionario);
   }
   
 
